@@ -1032,16 +1032,16 @@ static handler* _hstack_push(ref hstack* hs, lh_effect effect, count size) {
 // Push an effect handler
 static effecthandler* hstack_push_effect(ref hstack* hs, const lh_handlerdef* hdef, void* stackbase, lh_value local)
 {
-  static count id = 1000;
+  // static count id = 1000;
   effecthandler* h = (effecthandler*)_hstack_push(hs, hdef->effect, sizeof(effecthandler));
-  h->id = id++;
+  // h->id = id++;
   h->hdef = hdef;
   h->stackbase = stackbase;
   h->local = local;
-  h->exn_frame = NULL;
-  h->arg = lh_value_null;
-  h->arg_op = NULL;
-  h->arg_resume = NULL;
+  // h->exn_frame = NULL;
+  // h->arg = lh_value_null;
+  // h->arg_op = NULL;
+  // h->arg_resume = NULL;
   return h;
 }
 
@@ -1746,9 +1746,9 @@ __noinline lh_value lh_handle( const lh_handlerdef* def, lh_value local, lh_acti
   void* base = NULL; // get_stack_top(); 
   hstack* hs = &__hstack;
   lh_value res;
-  LH_INIT(hs)
+  // LH_INIT(hs)
   res = handle_upto(hs, &base, def, local, action, arg);
-  LH_DONE(hs)
+  // LH_DONE(hs)
   return res;
 }
 
