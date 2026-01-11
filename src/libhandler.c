@@ -71,7 +71,7 @@
 
 
 // maintain cheap statistics
-#define _STATS
+// #define _STATS
 
 // Annotate pointer parameters
 #define ref
@@ -855,8 +855,8 @@ static handler* handler_acquire(handler* h) {
 
 // Handler stacks increase exponentially in size up to a limit, then increase linearly
 // #define HMINSIZE     (32*sizeof(effecthandler))
-#define HMINSIZE     (1024*sizeof(effecthandler))
-#define HMAXEXPAND   (2*1024*1024)
+#define HMINSIZE     (8*1024*sizeof(effecthandler))
+#define HMAXEXPAND   (8*1024*1024)
 
 static count hstack_goodsize(count needed) {
   if (needed > HMAXEXPAND) {
